@@ -1,0 +1,23 @@
+
+services:
+  tmd-rfdmc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: tmd-rfdmc-python-ssh:1.0
+    container_name: tmd-rfdmc
+    restart: unless-stopped
+
+    environment:
+      SSH_PASSWORD: "${SSH_PASSWORD:?Set SSH_PASSWORD in .env}"
+      TZ: Asia/Vientiane
+
+    ports:
+      - "2222:22"
+
+    volumes:
+      - ./output:/output
+
+    working_dir: /app
+    init: true

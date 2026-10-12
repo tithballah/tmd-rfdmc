@@ -1,0 +1,5 @@
+SHELL=/bin/sh
+PATH=/usr/local/bin:/usr/bin:/bin
+TZ=Asia/Vientiane
+
+30 7 * * * tmd-rfdmc cd /app && /usr/local/bin/python -u /app/main.py >> /output/main.log 2>&1
